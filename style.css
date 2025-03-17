@@ -1,0 +1,39 @@
+/* الملف: styles.css */
+body {
+    font-family: 'Tajawal', sans-serif;
+}
+
+.card {
+    transition: transform 0.3s;
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.client-info {
+    padding: 15px;
+}
+
+.whatsapp-btn {
+    background: #25D366;
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.whatsapp-btn:hover {
+    background: #128C7E;
+}
+
+.phone-number {
+    direction: ltr;
+    text-align: center;
+    margin: 10px 0;
+}
