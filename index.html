@@ -38,12 +38,106 @@
             font-family: 'Tajawal', sans-serif;
             background-color: #f8f9fa;
             line-height: 1.6;
+            position: relative;
         }
 
         .main-content {
             padding: 20px;
+            position: relative;
+            z-index: 1;
+            background-color: rgba(248, 249, 250, 0.9);
         }
 
+        /* أنماط المسطح المائي */
+        .water-surface {
+            position: relative;
+            height: 120px;
+            margin-bottom: 40px;
+            overflow: hidden;
+            background: linear-gradient(to bottom, 
+                rgba(23, 107, 179, 0.8) 0%,
+                rgba(33, 150, 243, 0.6) 50%,
+                rgba(33, 150, 243, 0.3) 100%);
+            border-radius: 0 0 50% 50%/0 0 100% 100%;
+            box-shadow: 0 10px 30px rgba(33, 150, 243, 0.3);
+        }
+
+        .water-wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            animation: wave 5s infinite linear;
+        }
+
+        /* أشكال الدلافين */
+        .dolphin {
+            position: absolute;
+            width: 100px;
+            height: 50px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50"><path d="M10 25 Q0 10 20 5 Q30 15 50 15 L80 15 Q95 25 80 35 L50 35 Q30 35 20 45 Q0 40 10 25 Z" fill="%2373A1BF"/><circle cx="30" cy="25" r="3" fill="%23fff"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 1;
+            animation: dolphin-jump 8s infinite;
+        }
+
+        /* حركة القفز للدلافين */
+        @keyframes dolphin-jump {
+            0%, 100% {
+                transform: translateX(-150px) translateY(50px) rotateY(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            20% {
+                transform: translateX(50px) translateY(0px) rotateY(0deg);
+            }
+            30% {
+                transform: translateX(100px) translateY(-100px) rotateY(0deg) rotate(-15deg);
+            }
+            40% {
+                transform: translateX(150px) translateY(-150px) rotateY(0deg) rotate(-30deg);
+            }
+            50% {
+                transform: translateX(200px) translateY(-50px) rotateY(0deg) rotate(-15deg);
+            }
+            60% {
+                transform: translateX(250px) translateY(0px) rotateY(0deg);
+            }
+            70% {
+                transform: translateX(300px) translateY(50px) rotateY(180deg);
+            }
+            80% {
+                transform: translateX(350px) translateY(0px) rotateY(180deg);
+            }
+            90% {
+                transform: translateX(400px) translateY(-80px) rotateY(180deg) rotate(15deg);
+            }
+        }
+
+        /* حركة الموج */
+        @keyframes wave {
+            0% {
+                transform: translateX(-50%);
+            }
+            100% {
+                transform: translateX(0%);
+            }
+        }
+
+        /* تعديل شريط البحث */
+        .search-box {
+            position: relative;
+            z-index: 2;
+            margin-top: -20px;
+            padding: 0 20px;
+        }
+
+        /* باقي الأنماط */
         .search-box {
             margin-bottom: 30px;
         }
@@ -54,6 +148,7 @@
             border: none;
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
             border-radius: 10px;
+            background-color: white;
         }
 
         .card:hover {
@@ -91,6 +186,8 @@
             padding: 20px 0;
             text-align: center;
             margin-top: 40px;
+            position: relative;
+            z-index: 1;
         }
 
         .social-links a {
@@ -145,9 +242,182 @@
             font-weight: 700;
             font-size: 1.5rem;
         }
+
+        /* أنماط خلفية الأسماك المتحركة */
+        .fish-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .fish {
+            position: absolute;
+            width: 80px;
+            height: 40px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+            animation: swim linear infinite;
+            opacity: 0.7;
+        }
+
+        /* أشكال الأسماك المختلفة */
+        .fish-1 {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50"><path d="M90,25 Q100,35 90,40 Q80,35 60,35 L20,35 Q5,25 20,15 L60,15 Q80,15 90,10 Q100,15 90,25 Z" fill="%23FF5722"/><circle cx="75" cy="25" r="3" fill="%23fff"/></svg>');
+        }
+
+        .fish-2 {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50"><path d="M90,25 Q100,35 85,40 Q80,30 60,30 L30,30 Q15,25 30,20 L60,20 Q80,20 85,10 Q100,15 90,25 Z" fill="%2300BCD4"/><circle cx="70" cy="25" r="3" fill="%23fff"/></svg>');
+        }
+
+        .fish-3 {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50"><path d="M90,25 Q100,15 85,10 Q80,20 60,20 L20,20 Q5,25 20,30 L60,30 Q80,30 85,40 Q100,35 90,25 Z" fill="%23FFC107"/><circle cx="70" cy="25" r="3" fill="%23fff"/></svg>');
+        }
+
+        /* سمكة خاصة تشبه سمك القرش */
+        .shark {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50"><path d="M90,25 Q100,10 85,5 Q80,15 60,15 L20,15 Q10,25 20,35 L60,35 Q80,35 85,45 Q100,40 90,25 Z" fill="%23607080"/><circle cx="75" cy="25" r="3" fill="%23fff"/><path d="M85,20 L95,15 L95,25 L85,30 Z" fill="%23d9534f"/></svg>');
+        }
+
+        .bubble {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            animation: bubble-up linear infinite;
+        }
+
+        @keyframes swim {
+            0% {
+                transform: translateX(-100px) scaleX(1);
+            }
+            100% {
+                transform: translateX(calc(100vw + 100px)) scaleX(1);
+            }
+        }
+
+        @keyframes swim-reverse {
+            0% {
+                transform: translateX(calc(100vw + 100px)) scaleX(-1);
+            }
+            100% {
+                transform: translateX(-100px) scaleX(-1);
+            }
+        }
+
+        @keyframes bubble-up {
+            0% {
+                transform: translateY(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+
+            .card {
+                margin-bottom: 15px;
+            }
+
+            .product-img {
+                height: 150px;
+            }
+
+            .contact-info {
+                padding: 15px;
+            }
+
+            .breadcrumb {
+                padding: 0.5rem 0.75rem;
+            }
+
+            .breadcrumb-item.active {
+                font-size: 0.9rem;
+            }
+
+            h1, h2, h3 {
+                font-size: 1.5rem;
+            }
+
+            .whatsapp-btn {
+                padding: 6px 15px;
+                font-size: 0.9rem;
+            }
+
+            .map-container iframe {
+                height: 300px;
+            }
+
+            .dolphin {
+                width: 70px;
+                height: 35px;
+            }
+
+            .fish {
+                width: 60px;
+                height: 30px;
+            }
+
+            .bubble {
+                width: 10px;
+                height: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar-brand {
+                font-size: 1rem;
+            }
+
+            .card-body h3 {
+                font-size: 1rem;
+            }
+
+            .breadcrumb-item.active {
+                font-size: 0.8rem;
+            }
+
+            .whatsapp-btn {
+                font-size: 0.8rem;
+            }
+
+            .contact-info p {
+                font-size: 0.9rem;
+            }
+
+            .map-container iframe {
+                height: 250px;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- خلفية الأسماك المتحركة -->
+    <div class="fish-container" id="fishContainer"></div>
+
+    <!-- المسطح المائي مع الدلافين -->
+    <div class="water-surface">
+        <div class="water-wave"></div>
+        <div class="dolphin" style="left:10%; animation-delay:0s;"></div>
+        <div class="dolphin" style="left:30%; animation-delay:2s;"></div>
+        <div class="dolphin" style="left:50%; animation-delay:4s;"></div>
+    </div>
+
     <!-- شريط التنقل -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
@@ -158,9 +428,8 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#products">الاسماك</a></li>
-                    
+                    <li class="nav-item"><a class="nav-link" href="#special-offers">العروض الخاصة</a></li>
                     <li class="nav-item"><a class="nav-link" href="#location">موقعنا</a></li>
-                    
                 </ul>
             </div>
         </div>
@@ -169,7 +438,6 @@
     <!-- مسار التنقل -->
     <nav aria-label="breadcrumb" class="container py-2">
         <ol class="breadcrumb">
-           
             <li class="breadcrumb-item active" aria-current="page">المنتجات</li>
         </ol>
     </nav>
@@ -193,6 +461,54 @@
                 <h2 class="text-center mb-4">المنتجات المتاحة</h2>
                 <div class="row" id="productsContainer">
                     <!-- المنتجات ستضاف هنا عبر JavaScript -->
+                </div>
+                <div class="text-center mt-4" id="paginationContainer">
+                    <!-- أزرار التصفح ستضاف هنا -->
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم العروض الخاصة -->
+        <section id="special-offers" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-4">العروض الخاصة</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="images/offer1.jpg" class="card-img-top" alt="عرض خاص 1">
+                            <div class="card-body">
+                                <h5 class="card-title">عرض خاص 1</h5>
+                                <p class="card-text">احصل على خصم 20% عند شراء 2 كجم من الجمبري الكبير.</p>
+                                <a href="https://wa.me/201092516006?text=مرحباً، أريد الاستفادة من عرض خاص 1" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-whatsapp"></i> طلب عبر واتساب
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="images/offer2.jpg" class="card-img-top" alt="عرض خاص 2">
+                            <div class="card-body">
+                                <h5 class="card-title">عرض خاص 2</h5>
+                                <p class="card-text">اشترِ 3 كجم من سمك البلطي واحصل على 1 كجم مجاناً.</p>
+                                <a href="https://wa.me/201092516006?text=مرحباً، أريد الاستفادة من عرض خاص 2" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-whatsapp"></i> طلب عبر واتساب
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="images/offer3.jpg" class="card-img-top" alt="عرض خاص 3">
+                            <div class="card-body">
+                                <h5 class="card-title">عرض خاص 3</h5>
+                                <p class="card-text">خصم 15% على جميع أنواع السمك المشوي.</p>
+                                <a href="https://wa.me/201092516006?text=مرحباً، أريد الاستفادة من عرض خاص 3" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-whatsapp"></i> طلب عبر واتساب
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -220,16 +536,13 @@
                             <h3>معلومات الاتصال</h3>
                             <p><i class="fas fa-map-marker-alt"></i> العنوان: خلف المستشفى العام بعد الصحة النفسية، مصر</p>
                             <p><i class="fas fa-phone"></i> الهاتف: <a href="tel:+201092516006">01092516006</a></p>
-                            
                             <p><i class="fas fa-clock"></i> مواعيد العمل: 10 ص - 6 م</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        
-        <!-- قسم اتصل بنا -->
-       
+    </div>
 
     <!-- الفوتر -->
     <footer>
@@ -357,22 +670,147 @@
                 category: "الأسماك",
                 features: ["لحم وردي", "غني بالأوميغا 3", "طازج"],
                 alt: "سمك سلمون طازج من متجر سماكوزا"
+            },
+            {
+                name: "سمك سردين",
+                price: "80 ج",
+                image: "images/سمك_سردين.jpg",
+                category: "الأسماك",
+                features: ["طازج", "مناسب للتعليب", "مصيد محلي"],
+                alt: "سمك سردين طازج من متجر سماكوزا"
+            },
+            {
+                name: "كابوريا",
+                price: "170 ج",
+                image: "images/كابوريا.jpg",
+                category: "الجمبري",
+                features: ["طازجة", "غنية بالبروتين", "مناسبة للشوي"],
+                alt: "كابوريا طازجة من متجر سماكوزا"
+            },
+            {
+                name: "سمك مكرونة",
+                price: "90 ج",
+                image: "images/سمك_مكرونة.jpg",
+                category: "الأسماك",
+                features: ["لحم ناعم", "مناسب للقلي", "طازج"],
+                alt: "سمك مكرونة طازج من متجر سماكوزا"
+            },
+            {
+                name: "سمك شعور",
+                price: "110 ج",
+                image: "images/سمك_شعور.jpg",
+                category: "الأسماك",
+                features: ["طازج", "مناسب للشوي", "مصيد محلي"],
+                alt: "سمك شعور طازج من متجر سماكوزا"
+            },
+            {
+                name: "سمك تونة",
+                price: "180 ج",
+                image: "images/سمك_تونة.jpg",
+                category: "الأسماك",
+                features: ["طازج", "غني بالبروتين", "مناسب للشوي"],
+                alt: "سمك تونة طازج من متجر سماكوزا"
+            },
+            {
+                name: "جمبري صغير",
+                price: "120 ج",
+                image: "images/جمبري_صغير.jpg",
+                category: "الجمبري",
+                features: ["طازج", "مناسب للقلي", "سعر اقتصادي"],
+                alt: "جمبري صغير طازج من متجر سماكوزا"
+            },
+            {
+                name: "سمك كارب",
+                price: "150 ج",
+                image: "images/سمك_كارب.jpg",
+                category: "الأسماك",
+                features: ["لحم ناعم", "مناسب للشوي", "طازج"],
+                alt: "سمك كارب طازج من متجر سماكوزا"
+            },
+            {
+                name: "سمك أبو سيف",
+                price: "220 ج",
+                image: "images/سمك_ابو_سيف.jpg",
+                category: "الأسماك",
+                features: ["لحم مميز", "مناسب للشوي", "طازج"],
+                alt: "سمك أبو سيف طازج من متجر سماكوزا"
+            },
+            {
+                name: "كابوريا صغيرة",
+                price: "100 ج",
+                image: "images/كابوريا_صغيرة.jpg",
+                category: "الجمبري",
+                features: ["طازجة", "مناسبة للقلي", "سعر اقتصادي"],
+                alt: "كابوريا صغيرة طازجة من متجر سماكوزا"
+            },
+            {
+                name: "سمك ماكريل",
+                price: "130 ج",
+                image: "images/سمك_ماكريل.jpg",
+                category: "الأسماك",
+                features: ["طازج", "غني بالأوميغا 3", "مناسب للشوي"],
+                alt: "سمك ماكريل طازج من متجر سماكوزا"
+            },
+            {
+                name: "سمك قشر بياض",
+                price: "160 ج",
+                image: "images/سمك_قشر_بياض.jpg",
+                category: "الأسماك",
+                features: ["لحم مميز", "طازج", "مناسب للشوي"],
+                alt: "سمك قشر بياض طازج من متجر سماكوزا"
+            },
+            {
+                name: "جمبري متوسط",
+                price: "140 ج",
+                image: "images/جمبري_متوسط.jpg",
+                category: "الجمبري",
+                features: ["طازج", "مناسب للشوي", "جودة عالية"],
+                alt: "جمبري متوسط طازج من متجر سماكوزا"
+            },
+            {
+                name: "سمك بربوني",
+                price: "90 ج",
+                image: "images/سمك_بربوني.jpg",
+                category: "الأسماك",
+                features: ["طازج", "مناسب للقلي", "سعر اقتصادي"],
+                alt: "سمك بربوني طازج من متجر سماكوزا"
+            },
+            {
+                name: "سمك هامور",
+                price: "200 ج",
+                image: "images/سمك_هامور.jpg",
+                category: "الأسماك",
+                features: ["لحم مميز", "مناسب للشوي", "طازج"],
+                alt: "سمك هامور طازج من متجر سماكوزا"
+            },
+            {
+                name: "سمك شعري",
+                price: "110 ج",
+                image: "images/سمك_شعري.jpg",
+                category: "الأسماك",
+                features: ["طازج", "مناسب للشوي", "مصيد محلي"],
+                alt: "سمك شعري طازج من متجر سماكوزا"
             }
         ];
 
         // دالة إنشاء بطاقات المنتجات
-        function createProductCards(productsArray) {
+        function createProductCards(productsArray, page = 1) {
             const container = document.getElementById('productsContainer');
             container.innerHTML = '';
 
-            if (productsArray.length === 0) {
+            const itemsPerPage = 9;
+            const startIndex = (page - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const paginatedProducts = productsArray.slice(startIndex, endIndex);
+
+            if (paginatedProducts.length === 0) {
                 container.innerHTML = '<div class="col-12 text-center py-5"><h4>لا توجد منتجات مطابقة للبحث</h4></div>';
                 return;
             }
 
-            productsArray.forEach((product, index) => {
+            paginatedProducts.forEach(product => {
                 const card = `
-                    <div class="col-md-4 mb-4">
+                    <div class="col-md-4 col-sm-6 mb-4">
                         <div class="card h-100">
                             <img src="${product.image}" class="card-img-top product-img" alt="${product.alt}" loading="lazy">
                             <div class="card-body">
@@ -393,6 +831,24 @@
                 `;
                 container.innerHTML += card;
             });
+
+            createPagination(productsArray.length, itemsPerPage, page);
+        }
+
+        // دالة لإنشاء أزرار التصفح
+        function createPagination(totalItems, itemsPerPage, currentPage) {
+            const paginationContainer = document.getElementById('paginationContainer');
+            paginationContainer.innerHTML = '';
+
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+            for (let i = 1; i <= totalPages; i++) {
+                const button = document.createElement('button');
+                button.className = `btn btn-sm ${i === currentPage ? 'btn-primary' : 'btn-outline-primary'} mx-1`;
+                button.textContent = i;
+                button.addEventListener('click', () => createProductCards(products, i));
+                paginationContainer.appendChild(button);
+            }
         }
 
         // دالة البحث
@@ -417,6 +873,87 @@
             document.title = title;
         }
 
+        // دالة لإنشاء دلافين إضافية بشكل عشوائي
+        function createRandomDolphins() {
+            const waterSurface = document.querySelector('.water-surface');
+            const dolphinCount = Math.floor(Math.random() * 2) + 1; // 1-2 دلافين إضافية
+            
+            for(let i = 0; i < dolphinCount; i++) {
+                const dolphin = document.createElement('div');
+                const delay = Math.random() * 5;
+                const left = Math.random() * 70 + 10;
+                
+                dolphin.className = 'dolphin';
+                dolphin.style.left = `${left}%`;
+                dolphin.style.animationDelay = `${delay}s`;
+                
+                waterSurface.appendChild(dolphin);
+                
+                // إزالة الدلفين بعد انتهاء الحركة
+                setTimeout(() => {
+                    dolphin.remove();
+                }, 8000 + (delay * 1000));
+            }
+            
+            setTimeout(createRandomDolphins, 10000);
+        }
+
+        // دالة لإنشاء خلفية الأسماك المتحركة
+        function initFishBackground() {
+            const fishContainer = document.getElementById('fishContainer');
+            const fishTypes = ['fish-1', 'fish-2', 'fish-3', 'shark'];
+            
+            // إنشاء الأسماك
+            for (let i = 0; i < 8; i++) {
+                createFish();
+            }
+            
+            // إنشاء الفقاعات
+            setInterval(createBubble, 800);
+            
+            function createFish() {
+                const fish = document.createElement('div');
+                const fishType = fishTypes[Math.floor(Math.random() * fishTypes.length)];
+                const size = Math.random() * 0.7 + 0.5;
+                const duration = Math.random() * 40 + 30;
+                const delay = Math.random() * 30;
+                const top = Math.random() * 80 + 10;
+                
+                fish.className = `fish ${fishType}`;
+                fish.style.top = `${top}%`;
+                fish.style.left = `${Math.random() * 100}%`;
+                fish.style.transform = `scale(${size})`;
+                fish.style.animationName = Math.random() > 0.5 ? 'swim' : 'swim-reverse';
+                fish.style.animationDuration = `${duration}s`;
+                fish.style.animationDelay = `-${delay}s`;
+                
+                fishContainer.appendChild(fish);
+            }
+            
+            function createBubble() {
+                const bubble = document.createElement('div');
+                const left = Math.random() * 100;
+                const size = Math.random() * 10 + 5;
+                const duration = Math.random() * 15 + 10;
+                const delay = Math.random() * 5;
+                
+                bubble.className = 'bubble';
+                bubble.style.left = `${left}%`;
+                bubble.style.bottom = '0';
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.animationDuration = `${duration}s`;
+                bubble.style.animationDelay = `-${delay}s`;
+                
+                fishContainer.appendChild(bubble);
+                
+                // إزالة الفقاعة بعد انتهاء الحركة
+                setTimeout(() => {
+                    bubble.remove();
+                }, duration * 1000);
+            }
+        }
+
         // تهيئة أولية
         document.addEventListener('DOMContentLoaded', function() {
             // عرض المنتجات
@@ -437,10 +974,12 @@
             // تحديث سنة حقوق النشر
             document.getElementById('year').textContent = new Date().getFullYear();
             
-            // إدارة نموذج الاتصال
-           
+            // بدء خلفية الأسماك المتحركة
+            initFishBackground();
+            
+            // بدء حركة الدلافين بعد تأخير
+            setTimeout(createRandomDolphins, 5000);
         });
-       
     </script>
 </body>
 </html>
