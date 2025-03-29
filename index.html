@@ -36,12 +36,18 @@
 
 
 
-    
-      <meta charset="UTF-8">
+
+
+
+
+
+
+
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سماكوزا - حلقة للسماك الطازج في مصر</title>
     <meta name="description" content="سماكوزا - أفضل متجر لبيع الأسماك الطازجة في مصر. جودة عالية، أسعار منافسة، توصيل سريع. طلبك من الأسماك بين يديك في أسرع وقت">
-    <meta name="keywords" content="سمك طازج, جمبري, أسماك للبيع, سمك بلطي, سمك موسى, سمك دنيس, سمك قشر, سمك قاروص, سمك سلمون, أسماك مصرية">
+    <meta name="keywords" content="سمك طازج, جمبري, أسماك للبيع, سمك بلطي, سمك موسى, سمك دنيس, سمك قشر, سمك قاروص, سمك سلمون, أسماك مصرية, أسماك طازجة, توصيل أسماك, متجر أسماك, أسماك البحر الأحمر, أسماك البحر المتوسط, أسماك مشوية, أسماك مقلية, سي فود, كابوريا, سبيط, رنجة, بطارخ, سمك هامور, سمك شعري, سمك بربوني, سمك تونة, سمك مكرونة, سمك سردين, سمك ماكريل, سمك لوت, سمك بياض, سمك بورى, جمبري صغير, جمبري متوسط, جمبري كبير, جمبري جامبو, كابوريا صغيرة, سبيط بدون حبر, أخطبوط, فيليه بلطي, شوربة سي فود, مكريل نرويجي, مكريل ياباني, رنجة مدخنة, بطارخ طازجة">
     <meta name="author" content="سماكوزا">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://samakoza.com" />
@@ -81,7 +87,9 @@
             padding: 20px;
             position: relative;
             z-index: 1;
-            background-color: rgba(248, 249, 250, 0.9);
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         /* أنماط المسطح المائي */
@@ -179,16 +187,16 @@
         }
 
         .card {
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
             margin-bottom: 20px;
-            border: none;
+            border: 1px solid #ddd;
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
             border-radius: 10px;
             background-color: white;
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
             box-shadow: 0 5px 20px rgba(0,0,0,0.2);
         }
 
@@ -200,7 +208,7 @@
         }
 
         .whatsapp-btn {
-            background: #25D366;
+            background: linear-gradient(90deg, #25D366, #128C7E);
             color: white !important;
             padding: 8px 20px;
             border-radius: 25px;
@@ -209,6 +217,7 @@
             margin-top: 15px;
             transition: background 0.3s;
             font-weight: 500;
+            font-size: 1rem;
         }
 
         .whatsapp-btn:hover {
@@ -217,8 +226,8 @@
         }
 
         footer {
-            background: #2c3e50;
-            color: white;
+            background: linear-gradient(90deg, #007bff, #6610f2);
+            color: #fff;
             padding: 20px 0;
             text-align: center;
             margin-top: 40px;
@@ -227,14 +236,14 @@
         }
 
         .social-links a {
-            color: white;
+            color: #ffd700;
             margin: 0 10px;
-            font-size: 20px;
+            font-size: 1.5rem;
             transition: color 0.3s;
         }
 
         .social-links a:hover {
-            color: #25D366;
+            color: #fff;
         }
         
         .map-container {
@@ -261,22 +270,41 @@
         }
         
         .breadcrumb {
-            background-color: transparent;
+            background-color: #f8f9fa;
+            border-radius: 5px;
             padding: 0.75rem 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         
         .breadcrumb-item.active {
-            color: #6c757d;
+            font-weight: bold;
+            color: #007bff;
         }
         
         h1, h2, h3 {
-            color: #2c3e50;
+            color: #007bff;
             font-weight: 700;
+            font-family: 'Tajawal', sans-serif;
         }
         
         .navbar-brand {
             font-weight: 700;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+            color: #fff !important;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff !important;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffd700 !important;
+        }
+
+        .navbar {
+            background: linear-gradient(90deg, #007bff, #6610f2);
         }
 
         /* أنماط خلفية الأسماك المتحركة */
@@ -440,9 +468,143 @@
                 height: 250px;
             }
         }
+
+        .cart-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .cart-header {
+            background: #007bff;
+            color: #fff;
+            padding: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .cart-items {
+            padding: 10px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .cart-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .cart-footer {
+            padding: 10px;
+            text-align: center;
+            border-top: 1px solid #ddd;
+        }
+
+        .cart-footer button {
+            background: #25D366;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .cart-footer button:hover {
+            background: #128C7E;
+        }
+
+        .cart-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+        }
+
+        .cart-toggle:hover {
+            background: #0056b3;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff0000;
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .add-to-cart-animation {
+            position: fixed;
+            z-index: 2000;
+            pointer-events: none;
+            animation: fly-to-cart 1s ease-in-out forwards;
+        }
+
+        @keyframes fly-to-cart {
+            0% {
+                transform: scale(1) translate(0, 0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0.5) translate(calc(100vw - 60px), -20px);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- زر فتح/إغلاق سلة المشتريات -->
+    <button class="cart-toggle" onclick="toggleCart()">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cartCount">0</span>
+    </button>
+
+    <!-- سلة المشتريات -->
+    <div class="cart-container" id="cartContainer">
+        <div class="cart-header">سلة المشتريات</div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer">
+            <button onclick="checkout()">إتمام الشراء</button>
+        </div>
+    </div>
+
     <!-- خلفية الأسماك المتحركة -->
     <div class="fish-container" id="fishContainer"></div>
 
@@ -480,6 +642,12 @@
 
     <!-- المحتوى الرئيسي -->
     <div class="main-content">
+        <!-- مساحة إعلانية أعلى الصفحة -->
+        <div class="ad-space mb-4 text-center">
+            <a href="https://example.com" target="_blank" rel="noopener noreferrer">
+                <img src="images/ads/ad-top.jpg" alt="إعلان أعلى الصفحة" class="img-fluid rounded">
+            </a>
+        </div>
         <!-- شريط البحث -->
         <div class="search-box">
             <div class="input-group">
@@ -497,6 +665,12 @@
                 <h2 class="text-center mb-4">المنتجات المتاحة</h2>
                 <div class="row" id="productsContainer">
                     <!-- المنتجات ستضاف هنا عبر JavaScript -->
+                </div>
+                <!-- مساحة إعلانية بين المنتجات -->
+                <div class="ad-space my-4 text-center">
+                    <a href="https://example.com" target="_blank" rel="noopener noreferrer">
+                        <img src="images/ads/ad-middle.jpg" alt="إعلان بين المنتجات" class="img-fluid rounded">
+                    </a>
                 </div>
                 <div class="text-center mt-4" id="paginationContainer">
                     <!-- أزرار التصفح ستضاف هنا -->
@@ -552,6 +726,12 @@
         <!-- قسم الموقع -->
         <section id="location" class="py-5 bg-light">
             <div class="container">
+                <!-- مساحة إعلانية أسفل الصفحة -->
+                <div class="ad-space mb-4 text-center">
+                    <a href="https://example.com" target="_blank" rel="noopener noreferrer">
+                        <img src="images/ads/ad-bottom.jpg" alt="إعلان أسفل الصفحة" class="img-fluid rounded">
+                    </a>
+                </div>
                 <h2 class="text-center mb-4">موقع المحل</h2>
                 <div class="row">
                     <div class="col-md-6">
@@ -768,22 +948,8 @@
                 features: ["طازج", "مناسب للقلي", "سعر اقتصادي"],
                 alt: "جمبري صغير طازج من متجر سماكوزا"
             },
-            {
-                name: "سمك كارب",
-                price: "150 ج",
-                image: "images/سمك_كارب.jpg",
-                category: "الأسماك",
-                features: ["لحم ناعم", "مناسب للشوي", "طازج"],
-                alt: "سمك كارب طازج من متجر سماكوزا"
-            },
-            {
-                name: "سمك أبو سيف",
-                price: "220 ج",
-                image: "images/سمك_ابو_سيف.jpg",
-                category: "الأسماك",
-                features: ["لحم مميز", "مناسب للشوي", "طازج"],
-                alt: "سمك أبو سيف طازج من متجر سماكوزا"
-            },
+
+
             {
                 name: "كابوريا صغيرة",
                 price: "100 ج",
@@ -839,6 +1005,206 @@
                 category: "الأسماك",
                 features: ["طازج", "مناسب للشوي", "مصيد محلي"],
                 alt: "سمك شعري طازج من متجر سماكوزا"
+            },
+            {
+                name: "بسريا",
+                price: "20 ج",
+                image: "images/بسريا.jpg",
+                category: "الأسماك",
+                features: ["طازج", "سعر اقتصادي"],
+                alt: "بسريا طازج من متجر سماكوزا"
+            },
+            {
+                name: "بلطى احمر كفر الشيخ جميع الاحجام",
+                price: "85 ج",
+                image: "images/بلطى_احمر.jpg",
+                category: "الأسماك",
+                features: ["طازج", "مصيد محلي", "جودة عالية"],
+                alt: "بلطى احمر طازج من متجر سماكوزا"
+            },
+            {
+                name: "بياض بلدى جميع الاحجام",
+                price: "130 ج",
+                image: "images/بياض_بلدى.jpg",
+                category: "الأسماك",
+                features: ["لحم مميز", "طازج", "مناسب للشوي"],
+                alt: "بياض بلدى طازج من متجر سماكوزا"
+            },
+            {
+                name: "مغازال",
+                price: "110 ج",
+                image: "images/مغازال.jpg",
+                category: "الأسماك",
+                features: ["طازج", "مناسب للقلي"],
+                alt: "مغازال طازج من متجر سماكوزا"
+            },
+            {
+                name: "مكرونه سويسي فاخر",
+                price: "150 ج",
+                image: "images/مكرونه_سويسي.jpg",
+                category: "الأسماك",
+                features: ["لحم ناعم", "مناسب للقلي", "طازج"],
+                alt: "مكرونه سويسي طازج من متجر سماكوزا"
+            },
+            {
+                name: "لوت جميع الاحجام",
+                price: "150 ج",
+                image: "images/لوت.jpg",
+                category: "الأسماك",
+                features: ["طازج", "مناسب للشوي"],
+                alt: "لوت طازج من متجر سماكوزا"
+            },
+            {
+                name: "بوري كبير",
+                price: "220 ج",
+                image: "images/بوري_كبير.jpg",
+                category: "الأسماك",
+                features: ["طازج", "مناسب للشوي"],
+                alt: "بوري كبير طازج من متجر سماكوزا"
+            },
+            {
+                name: "بوري وسط",
+                price: "170 ج",
+                image: "images/بوري_وسط.jpg",
+                category: "الأسماك",
+                features: ["طازج", "مناسب للقلي"],
+                alt: "بوري وسط طازج من متجر سماكوزا"
+            },
+            {
+                name: "جمبري بيبي لحم",
+                price: "150 ج",
+                image: "images/جمبري_بيبي.jpg",
+                category: "الجمبري",
+                features: ["طازج", "مناسب للقلي"],
+                alt: "جمبري بيبي طازج من متجر سماكوزا"
+            },
+            {
+                name: "كابوريا نتى مبطرخه",
+                price: "180 ج",
+                image: "images/كابوريا_نتى.jpg",
+                category: "الجمبري",
+                features: ["طازجة", "غنية بالبروتين"],
+                alt: "كابوريا نتى طازجة من متجر سماكوزا"
+            },
+            {
+                name: "سبيط بدون حبر",
+                price: "450 ج",
+                image: "images/سبيط.jpg",
+                category: "الأسماك",
+                features: ["طازج", "مناسب للشوي"],
+                alt: "سبيط طازج من متجر سماكوزا"
+            },
+            {
+                name: "بيض سبيط",
+                price: "650 ج",
+                image: "images/بيض_سبيط.jpg",
+                category: "الأسماك",
+                features: ["طازج", "مميز"],
+                alt: "بيض سبيط طازج من متجر سماكوزا"
+            },
+            {
+                name: "أخطبوط",
+                price: "330 ج",
+                image: "images/أخطبوط.jpg",
+                category: "الأسماك",
+                features: ["طازج", "مناسب للشوي"],
+                alt: "أخطبوط طازج من متجر سماكوزا"
+            },
+            {
+                name: "جندفلى",
+                price: "80 ج",
+                image: "images/جندفلى.jpg",
+                category: "الأسماك",
+                features: ["طازج", "مناسب للقلي"],
+                alt: "جندفلى طازج من متجر سماكوزا"
+            },
+            {
+                name: "هامور",
+                price: "300 ج",
+                image: "images/هامور.jpg",
+                category: "الأسماك",
+                features: ["لحم مميز", "طازج"],
+                alt: "هامور طازج من متجر سماكوزا"
+            },
+            {
+                name: "فيليه بلطى سوبر",
+                price: "250 ج",
+                image: "images/فيليه_بلطى.jpg",
+                category: "الأسماك",
+                features: ["طازج", "مناسب للشوي"],
+                alt: "فيليه بلطى طازج من متجر سماكوزا"
+            },
+            {
+                name: "سي فود",
+                price: "300 ج",
+                image: "images/سي_فود.jpg",
+                category: "الأسماك",
+                features: ["طازج", "مناسب للشوربة"],
+                alt: "سي فود طازج من متجر سماكوزا"
+            },
+            {
+                name: "بطارخ",
+                price: "220 ج",
+                image: "images/بطارخ.jpg",
+                category: "الأسماك",
+                features: ["طازج", "مميز"],
+                alt: "بطارخ طازج من متجر سماكوزا"
+            },
+            {
+                name: "سردين",
+                price: "80 ج",
+                image: "images/سردين.jpg",
+                category: "الأسماك",
+                features: ["طازج", "مناسب للتعليب"],
+                alt: "سردين طازج من متجر سماكوزا"
+            },
+            {
+                name: "مكريل نرويجى",
+                price: "160 ج",
+                image: "images/مكريل_نرويجى.jpg",
+                category: "الأسماك",
+                features: ["طازج", "غني بالأوميغا 3"],
+                alt: "مكريل نرويجى طازج من متجر سماكوزا"
+            },
+            {
+                name: "مكريل ياباني",
+                price: "100 ج",
+                image: "images/مكريل_ياباني.jpg",
+                category: "الأسماك",
+                features: ["طازج", "مناسب للشوي"],
+                alt: "مكريل ياباني طازج من متجر سماكوزا"
+            },
+            {
+                name: "رنجه",
+                price: "120ج/140ج/160ج",
+                image: "images/رنجه.jpg",
+                category: "الأسماك",
+                features: ["طازج", "مناسب للتدخين"],
+                alt: "رنجه طازج من متجر سماكوزا"
+            },
+            {
+                name: "جمبري وسط",
+                price: "400 ج",
+                image: "images/جمبري_وسط.jpg",
+                category: "الجمبري",
+                features: ["طازج", "مناسب للشوي"],
+                alt: "جمبري وسط طازج من متجر سماكوزا"
+            },
+            {
+                name: "جمبري كبير",
+                price: "560 ج",
+                image: "images/جمبري_كبير.jpg",
+                category: "الجمبري",
+                features: ["طازج", "حجم كبير"],
+                alt: "جمبري كبير طازج من متجر سماكوزا"
+            },
+            {
+                name: "جمبري جامبو",
+                price: "630 ج",
+                image: "images/جمبري_جامبو.jpg",
+                category: "الجمبري",
+                features: ["طازج", "حجم ضخم"],
+                alt: "جمبري جامبو طازج من متجر سماكوزا"
             }
         ];
 
@@ -871,9 +1237,7 @@
                                     </ul>
                                 </p>
                                 <p class="text-success"><strong>السعر:</strong> ${product.price}</p>
-                                <a href="https://wa.me/201092516006?text=مرحباً، أريد طلب ${product.name}" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
-                                    <i class="fab fa-whatsapp"></i> طلب عبر واتساب
-                                </a>
+                                <button class="btn btn-primary btn-sm" onclick='addToCart(${JSON.stringify(product)})'>إضافة إلى السلة</button>
                             </div>
                         </div>
                     </div>
@@ -900,15 +1264,18 @@
             }
         }
 
-        // دالة البحث
+        // تحسين دالة البحث
         document.getElementById('searchInput').addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
+            const searchTerm = e.target.value.toLowerCase().trim();
             updateURL(searchTerm);
-            const filtered = products.filter(product => 
-                product.name.toLowerCase().includes(searchTerm) ||
-                product.category.toLowerCase().includes(searchTerm) ||
-                product.features.some(f => f.toLowerCase().includes(searchTerm))
-            );
+
+            const filtered = products.filter(product => {
+                const nameMatch = product.name.toLowerCase().includes(searchTerm);
+                const categoryMatch = product.category.toLowerCase().includes(searchTerm);
+                const featuresMatch = product.features.some(f => f.toLowerCase().includes(searchTerm));
+                return nameMatch || categoryMatch || featuresMatch;
+            });
+
             createProductCards(filtered);
         });
 
@@ -1029,6 +1396,94 @@
             // بدء حركة الدلافين بعد تأخير
             setTimeout(createRandomDolphins, 5000);
         });
+
+        const cart = [];
+
+        function addToCart(product) {
+            const existingProduct = cart.find(item => item.name === product.name);
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+            updateCartUI();
+            showAddToCartAnimation(product.image);
+        }
+
+        function removeFromCart(productName) {
+            const productIndex = cart.findIndex(item => item.name === productName);
+            if (productIndex !== -1) {
+                cart.splice(productIndex, 1);
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartContainer = document.getElementById('cartItems');
+            const cartCount = document.getElementById('cartCount');
+            cartContainer.innerHTML = '';
+
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<p class="text-center">سلة المشتريات فارغة</p>';
+                cartCount.textContent = '0';
+                return;
+            }
+
+            cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
+
+            cart.forEach(item => {
+                const cartItem = `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.alt}">
+                        <div>
+                            <p>${item.name}</p>
+                            <p>الكمية: ${item.quantity}</p>
+                        </div>
+                        <button class="btn btn-sm btn-danger" onclick="removeFromCart('${item.name}')">إزالة</button>
+                    </div>
+                `;
+                cartContainer.innerHTML += cartItem;
+            });
+        }
+
+        function showAddToCartAnimation(imageSrc) {
+            const animationElement = document.createElement('img');
+            animationElement.src = imageSrc;
+            animationElement.className = 'add-to-cart-animation';
+
+            // Use event parameter explicitly
+            document.addEventListener('click', (event) => {
+                animationElement.style.top = `${event.clientY}px`;
+                animationElement.style.left = `${event.clientX}px`;
+            });
+
+            document.body.appendChild(animationElement);
+
+            animationElement.addEventListener('animationend', () => {
+                animationElement.remove();
+            });
+        }
+
+        function toggleCart() {
+            const cartContainer = document.getElementById('cartContainer');
+            cartContainer.style.display = cartContainer.style.display === 'none' || cartContainer.style.display === '' ? 'block' : 'none';
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('سلة المشتريات فارغة!');
+                return;
+            }
+
+            let message = 'مرحباً، أريد إتمام الطلب التالي:\n';
+            cart.forEach(item => {
+                message += `- ${item.name} (الكمية: ${item.quantity})\n`;
+            });
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/201092516006?text=${encodedMessage}`;
+            window.open(whatsappURL, '_blank');
+        }
     </script>
 </body>
 </html>
